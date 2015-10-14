@@ -1,0 +1,43 @@
+<dom-module id="product-element">
+  <style>
+    :host {
+      display: block;
+    }
+    .field {
+      margin-bottom: 10px;
+      width: 300px;
+    }
+    label {
+      display: block;
+      margin-bottom: 4px;
+    }
+    input {
+      display: block;
+    }
+    .text-right {
+      text-align: right;
+    }
+  </style>
+  <template>
+    <div class="field">
+      <label>Name</label>
+      <input type="text" value="{{model.name::input}}" />
+    </div>
+    <div class="field">
+      <label>Price</label>
+      <input class="text-right" type="text" value="{%model.price|asCurrency::change%}" />
+    </div>
+    <div class="field">
+      <label>Quantity</label>
+      <input class="text-right" type="text" value="{%model.quantity|asInt::input%}" />
+    </div>
+    <div class="field">
+      <button on-click="reset">Reset</button>
+    </div>
+    <br/>
+    <h2>Raw values</h2>
+    <div>Name = <span>{{model.name}}</span></div>
+    <div>Price = <span>{{model.price}}</span></div>
+    <div>Quantity = <span>{{model.quantity}}</span></div>
+  </template>
+</dom-module>
